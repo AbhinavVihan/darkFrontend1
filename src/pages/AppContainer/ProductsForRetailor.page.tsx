@@ -122,7 +122,7 @@ const ProductForRetailor: FC<Props> = (props) => {
               {products.map((product) => (
                 <div className="rounded cursor-pointer bg-gray-50 hover:bg-gray-200">
                   <div className="flex justify-center border-black">
-                    <Link to={"/products/" + product._id}>
+                    <Link to={"/products/" + product._id + "/retailor"}>
                       <img
                         className="rounded-lg xxxsm:w-48 xsm:w-52 sm:w-44 md:w-52"
                         alt="jvbjdsbj"

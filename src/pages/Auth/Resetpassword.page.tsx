@@ -57,14 +57,14 @@ const ResetPassword: FC<Props> = (props) => {
     };
   }, []);
 
-  // useEffect(() => {
-  //   if (token === 1) {
-  //     alert(
-  //       "you must've refreshed the page or came to this page directly , kindly restart the process again"
-  //     );
-  //     history.push("/forgot-password");
-  //   }
-  // });
+  useEffect(() => {
+    if (token === 1) {
+      alert(
+        "you must've refreshed the page or came to this page directly , kindly restart the process again"
+      );
+      history.push("/forgot-password");
+    }
+  });
 
   return (
     <LoadingOverlay className="w-screen h-screen" active={loading} spinner>

@@ -49,7 +49,10 @@ export const forgotPassword = (data: forgotPasswordRequest) => {
       // console.log(response.data.message);
       return response.data.message;
     })
-    .catch((e) => console.log(e));
+    .catch((e) => {
+      alert(e);
+      window.location.href = "/forgot-password";
+    });
 };
 
 export const resetPassword = (data: resetPasswordRequest, token: any) => {
