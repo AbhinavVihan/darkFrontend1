@@ -30,6 +30,17 @@ export const fetchOneProduct = (id: string) => {
   return axios.get<ProductSingle>(url);
 };
 
+export const fetchOneProductForReview = (id: string) => {
+  const url = BASE_URL + "/products/" + id;
+
+  return axios
+    .get<ProductSingle>(url, { headers: { Authorization: AUTH_TOKEN } })
+    .then((response) => {
+      // console.log(response.data.doc);
+      return response.data.doc;
+    });
+};
+
 export const fetchProductsForCategory = (id: string) => {
   const url = BASE_URL + "/categories/" + id + "/products";
   // console.log(id);

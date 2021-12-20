@@ -2,10 +2,7 @@ import { FC, memo, useEffect, useState } from "react";
 // import { BASE_URL } from "../../api/base";
 import { getAllReviewsRetailor } from "../../api/products";
 import { Reviewss } from "../../models/Reviews";
-import {
-  selectedProductSelector,
-  uploadProductLoader,
-} from "../../selectors/products.selectors";
+import { uploadProductLoader } from "../../selectors/products.selectors";
 import { useAppSelector } from "../../store";
 import LoadingOverlay from "react-loading-overlay-ts";
 import { useDispatch } from "react-redux";
@@ -24,8 +21,6 @@ const RetailorAllReviews: FC<Props> = (props) => {
   const [reviews, setReviews] = useState<Reviewss[]>();
   // const re = reviews?.map((r) => r.product);
   // const pro = re?.toString();
-  const product = useAppSelector(selectedProductSelector);
-  // console.log(product);
 
   useEffect(() => {
     dispatch(retailorAllReviewsBegin());
@@ -35,10 +30,9 @@ const RetailorAllReviews: FC<Props> = (props) => {
         setReviews(r);
         // eslint-disable-next-line array-callback-return
         r.map((r) => {
-          dispatch(fetchOneProduct(r.product));
+          dispatch(fetchOneProduct(r.product.id));
         });
         dispatch(retailorAllReviewsCompleted());
-        // console.log(reviews);
       })
       .catch((e) => {
         dispatch(retailorAllReviewsError());
@@ -57,13 +51,13 @@ const RetailorAllReviews: FC<Props> = (props) => {
             <div className="text-center bg-gray-100 rounded-lg cursor-pointer sm:w-full hover:bg-gray-200">
               <div className="border-black ">
                 <div className="flex justify-center">
-                  {product && (
+                  {
                     <img
                       className="w-40 rounded-xl"
                       alt="jvbjdsbj"
-                      src={product.image1}
+                      src={r.product && r.product.image1}
                     />
-                  )}
+                  }
                 </div>
                 <div className="">
                   <div className="font-extrabold">

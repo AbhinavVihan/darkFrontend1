@@ -48,7 +48,7 @@ const CrateProduct: FC<Props> = (props) => {
   }, []);
 
   return (
-    <LoadingOverlay className="w-full h-full " active={loading} spinner>
+    <LoadingOverlay className="w-full h-full" active={loading} spinner>
       <div className="flex flex-col items-center pt-8 space-y-28">
         <div className="flex flex-col space-y-7">
           <div className="text-center">

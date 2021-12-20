@@ -1,6 +1,6 @@
 import { useFormik } from "formik";
 import React, { FC, memo, useState } from "react";
-import { Link, useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 import * as yup from "yup";
 import { loginAsRetailor } from "../../api/auth";
 import {
@@ -24,7 +24,6 @@ const RetailorLogin: FC<Props> = (props) => {
     setPassword(password ? false : true);
   };
 
-  const history = useHistory();
   // const loading = useAppSelector(loadingSelector);
 
   const { handleSubmit, getFieldProps, isValid } = useFormik({
@@ -41,7 +40,7 @@ const RetailorLogin: FC<Props> = (props) => {
       loginAsRetailor(data)
         .then((c) => {
           dispatch(meLoginAction(c!));
-          history.push("/retailor-overview");
+          // history.push("/retailor-overview");
           dispatch(RetailorLoginActionComplete());
         })
         .catch((e) => {

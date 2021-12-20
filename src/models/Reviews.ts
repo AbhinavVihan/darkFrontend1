@@ -12,7 +12,12 @@ export interface Reviewss extends Entity {
   rating: number;
   createdAt: string;
   customer: Customer;
-  product: string;
+  product: P;
+}
+
+interface P {
+  image1: string;
+  id: string;
 }
 
 export interface Revi {

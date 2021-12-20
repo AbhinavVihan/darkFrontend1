@@ -113,6 +113,13 @@ const Products: FC<Props> = (props) => {
           <div className="sm:grid sm:grid-cols-4 xxsm:grid xxsm:gap-7 xsm:gap-5 xxsm:grid-cols-3 lg:grid lg:grid-cols-7">
             {categories.map((category) => (
               <Link
+                // onClick={() => {
+                //   fetchProductsForCategory(category._id).then((p) => {
+                //     dispatch(fetchOneCategory(category._id));
+                //     dispatch(fetchProductsForCategories(category._id, p!));
+                //   });
+                //   // eslint-disable-next-line react-hooks/exhaustive-deps
+                // }}
                 className="flex flex-col items-center justify-center pb-5 rounded-full hover:bg-gray-300 "
                 to={"/categories/" + category._id + "/products"}
               >

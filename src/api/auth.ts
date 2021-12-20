@@ -31,6 +31,7 @@ export const loginAsRetailor = (data: LoginRequest) => {
     .then((response) => {
       localStorage.setItem(AUTH_TOKEN, "Bearer " + response.data.token);
       // alert("you are successfully loggedin as a retailor");
+      window.location.href = "/retailor-overview";
       return response.data.doc;
     })
     .catch((e) => {

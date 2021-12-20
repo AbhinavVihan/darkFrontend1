@@ -6,19 +6,24 @@ export interface ProductSingle {
 }
 
 export interface Doc {
-  quantity: number;
-  productCategory: Categories;
-  name: string;
-  ratingsAverage: number;
-  ratingsQuantity: number;
-  price: number;
   description: string;
-  images: string[];
-  slug: string;
+  id: string;
+  image1: string;
+  image2: string;
+  image3: string;
   imageCover: string;
   imageFront: string;
+  name: string;
+  price: number;
+  productCategory: string;
+  public_id: string;
+  quantity: number;
+  ratingsAverage: number;
+  ratingsQuantity: number;
   reviews: Review[];
-  id: string;
+  slug: string;
+  version: string;
+  _id: string;
 }
 
 export interface Review {

@@ -4,11 +4,7 @@ import { Link, useParams } from "react-router-dom";
 
 import { fetchOneProduct } from "../../actions/products.actions";
 import { createCart, getAllReviews } from "../../api/products";
-import {
-  selectedProductSelector,
-  selectedErrorSelector,
-  selectedLoadingSelector,
-} from "../../selectors/products.selectors";
+import { selectedProductSelector } from "../../selectors/products.selectors";
 import { useAppSelector } from "../../store";
 import {
   addToCartBegin,
@@ -27,6 +23,7 @@ import { AiOutlineShoppingCart } from "react-icons/ai";
 import LoadingOverlay from "react-loading-overlay-ts";
 import ReviewsPage from "./Reviews.page";
 import { Reviewss } from "../../models/Reviews";
+import { selectedLoadingSelector } from "../../selectors/categories.selectors";
 // import ReviewsPage from "./Reviews.page";
 
 <script src="https://js.stripe.com/v3/"></script>;
@@ -40,7 +37,7 @@ const ProductsDetails: FC<Props> = (props) => {
   const cartId = useAppSelector(cartIdSelector);
 
   const product = useAppSelector(selectedProductSelector);
-  const error = useAppSelector(selectedErrorSelector);
+  // const error = useAppSelector(selectedErrorSelector);
   const loading = useAppSelector(selectedLoadingSelector);
   const loadingForCart = useAppSelector(cartLoadingSelector);
 
@@ -97,15 +94,6 @@ const ProductsDetails: FC<Props> = (props) => {
   const addToCarts = () => {
     cartId && dispatch(addToCartBegin(productId, cartId));
   };
-
-  if (error) {
-    return (
-      <div>
-        <div className="text-red-500">{error}</div>
-        <Link to={"/products/" + (productId + 1)}>next product</Link>
-      </div>
-    );
-  }
 
   return (
     <LoadingOverlay
