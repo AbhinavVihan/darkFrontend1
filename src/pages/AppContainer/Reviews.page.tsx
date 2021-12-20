@@ -40,7 +40,7 @@ const Reviews: FC<Props> = (props) => {
                   alt="whdgwh"
                 />
               </div>
-              <div className="text-left">
+              <div className="px-5 text-left">
                 <div className="font-extrabold">
                   Review:{"    "}
                   <span className="font-normal">{r.review}</span>
@@ -69,7 +69,6 @@ const Reviews: FC<Props> = (props) => {
                 </div>
               )}
             </div>
-            ;
           </div>
         ))}
     </div>

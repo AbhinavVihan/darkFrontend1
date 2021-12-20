@@ -126,12 +126,12 @@ function* createproduct(action: AnyAction): Generator<any> {
       description: action.payload.data.description,
     });
     yield put(createProductComplete(res.data));
-    alert("created successfully");
+    alert("Product created successfully");
     // console.log(res.data);
   } catch (e: any) {
     const error = e.response.statusText || "some error occured";
     yield put(createProductError(error));
-    alert("Some error occured");
+    alert("Some error occured, please try again");
   }
 }
 

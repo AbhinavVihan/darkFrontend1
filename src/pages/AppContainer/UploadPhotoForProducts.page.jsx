@@ -1,4 +1,4 @@
-import React, { memo, useState } from "react";
+import React, { memo, useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 
@@ -19,9 +19,7 @@ import {
   uploadProductCompleted,
   uploadProductError,
 } from "../../actions/products.actions";
-import { AUTH_TOKEN } from "../../api/base";
 import { fetchProducts, uploadProductImages } from "../../api/products";
-import { meSelector } from "../../selectors/auth.selectors";
 import {
   selectedIdSelected,
   uploadProductLoader,
@@ -30,7 +28,6 @@ import { useAppSelector } from "../../store";
 import LoadingOverlay from "react-loading-overlay-ts";
 
 const UploadProductImages = () => {
-  const customer = useAppSelector(meSelector);
   const id = useAppSelector(selectedIdSelected);
   const loader = useAppSelector(uploadProductLoader);
 
@@ -45,18 +42,21 @@ const UploadProductImages = () => {
   const [disabled, setDisabled] = useState(true);
   const dispatch = useDispatch();
   const history = useHistory();
-  const token = localStorage.getItem(AUTH_TOKEN);
   const [previewSource, setPreviewSource] = useState();
 
-  if (!customer && token) {
-    alert("you are logged out somehow, please login again");
-    window.location.href = "/retailor-login";
-  }
   // useEffect(() => {
   //   alert(
   //     "do not refresh the page, else you'll need to start the whole process again"
   //   );
   // }, []);
+
+  useEffect(() => {
+    if (!id) {
+      alert("there is no category selected, please select one");
+      history.push = "/choose-category";
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const previewFile = (file) => {
     const reader = new FileReader();

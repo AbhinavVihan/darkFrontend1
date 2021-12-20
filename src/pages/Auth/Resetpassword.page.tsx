@@ -1,4 +1,4 @@
-import React, { FC, memo, useEffect, useState } from "react";
+import React, { FC, memo, useState } from "react";
 import { useHistory } from "react-router-dom";
 
 import { resetPassword } from "../../api/auth";
@@ -30,6 +30,14 @@ const ResetPassword: FC<Props> = (props) => {
 
   const history = useHistory();
 
+  // useEffect(() => {
+  //   if (token === 1) {
+  //     alert("we do not have your token yet, please try again");
+
+  //     history.push("/forgot-password");
+  //   }
+  // });
+
   const handleSubmit = (e: any) => {
     dispatch(resetPasswordForTokenBegin());
     e.preventDefault();
@@ -40,34 +48,25 @@ const ResetPassword: FC<Props> = (props) => {
         // authActions.login(c);
         dispatch(meLoginAction(c!));
         dispatch(resetPasswordForTokenCompleted());
-        history.push("/products");
+        alert("we are logging you in with your details");
       })
       .catch((e) => {
         history.push("/forgot-password");
         dispatch(resetPasswordForTokenError());
       });
   };
-  useEffect(() => {
-    window.onbeforeunload = function () {
-      return true;
-    };
+  // useEffect(() => {
+  //   window.onbeforeunload = function () {
+  //     return true;
+  //   };
 
-    return () => {
-      window.onbeforeunload = null;
-    };
-  }, []);
-
-  useEffect(() => {
-    if (token === 1) {
-      alert(
-        "you must've refreshed the page or came to this page directly , kindly restart the process again"
-      );
-      history.push("/forgot-password");
-    }
-  });
+  //   return () => {
+  //     window.onbeforeunload = null;
+  //   };
+  // }, []);
 
   return (
-    <LoadingOverlay className="w-screen h-screen" active={loading} spinner>
+    <LoadingOverlay className="w-full h-full" active={loading} spinner>
       ;
       <div className="flex flex-col items-center pt-8 space-y-28">
         <div className="flex flex-col space-y-14">
@@ -131,7 +130,7 @@ const ResetPassword: FC<Props> = (props) => {
             </div>
           </form>
         </div>
-        <div className="max-w-md text-center">
+        <div className="text-center ">
           <p>
             © 2021 All Rights Reserved. DARK is a product of Designreset. Cookie
             Preferences, Privacy, and Terms.

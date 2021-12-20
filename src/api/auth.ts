@@ -64,7 +64,11 @@ export const resetPassword = (data: resetPasswordRequest, token: any) => {
       localStorage.setItem(AUTH_TOKEN, "Bearer " + response.data.token);
       // console.log(response.data.doc);
       alert("your password has been successfully changed");
-
+      if (response.data.doc.role === "customer") {
+        window.location.href = "/products";
+      } else if (response.data.doc.role === "retailor") {
+        window.location.href = "/retailor-overview";
+      }
       return response.data.doc;
     })
     .catch((e) => {

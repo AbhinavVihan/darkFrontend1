@@ -12,7 +12,7 @@ const Sidebar: FC<Props> = (props) => {
   const customer = useAppSelector(meSelector);
 
   return (
-    <div className="pt-5 bg-gray-200 sm:text-center xsm:text-right">
+    <div className="pt-5 bg-gray-200 sm:text-center xxsm:text-right xxxsm:text-right xsm:text-right">
       {customer && customer.role === "customer" && (
         <div className="font-bold text-red-700 md:text-xl sm:text-sm ">
           Hi{" "}

@@ -1,4 +1,4 @@
-import { FC, memo } from "react";
+import { FC, memo, useEffect } from "react";
 import { useAppSelector } from "../../store";
 
 import { useHistory } from "react-router-dom";
@@ -35,9 +35,17 @@ const CrateProduct: FC<Props> = (props) => {
       dispatch(createProductBegin(categoryId, data));
       setTimeout(() => {
         history.push("/upload-photo");
-      }, 3000);
+      }, 2000);
     },
   });
+
+  useEffect(() => {
+    if (!categoryId) {
+      alert("there is no category selected, please select one");
+      history.push("/choose-category");
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <LoadingOverlay className="w-full h-full " active={loading} spinner>
@@ -100,10 +108,6 @@ const CrateProduct: FC<Props> = (props) => {
             Preferences, Privacy, and Terms.
           </p>
         </div>
-      </div>
-
-      <div className="mt-10 text-center text-red-500">
-        ⚫Kindly do not refresh the page.
       </div>
     </LoadingOverlay>
   );
