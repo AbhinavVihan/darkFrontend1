@@ -26,6 +26,15 @@
     -->
     <title>Dark</title>
   </head>
+  <script type="text/javascript">
+    var alerted = localStorage.getItem("alerted") || "";
+    if (alerted != "yes") {
+      alert(
+        "App may take some time to start the server on heroku, please cooperate..."
+      );
+      localStorage.setItem("alerted", "yes");
+    }
+  </script>
   <script src="https://js.stripe.com/v3/"></script>
 
   <body>
