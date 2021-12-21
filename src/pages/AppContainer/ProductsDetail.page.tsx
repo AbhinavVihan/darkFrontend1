@@ -190,7 +190,7 @@ const ProductsDetails: FC<Props> = (props) => {
             <div className=""></div>
           ))}
         </div>
-        <div className="text-right">
+        <div className="text-center">
           {customer?.role === "customer" && (
             <div>
               <Link
