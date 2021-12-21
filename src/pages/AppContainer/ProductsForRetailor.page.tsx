@@ -99,7 +99,7 @@ const ProductForRetailor: FC<Props> = (props) => {
             <div className="pb-8 font-bold text-center sm:text-3xl xxsm:text-xl">
               Browse by categories
             </div>
-            <div className="sm:grid sm:grid-cols-4 xxsm:grid xxsm:grid-cols-3 sm:gap-5 lg:grid lg:grid-cols-7">
+            <div className="sm:grid sm:grid-cols-4 xxsm:grid xxsm:gap-7 xsm:gap-5 xxsm:grid-cols-3 lg:grid lg:grid-cols-7">
               {categories.map((category) => (
                 <Link
                   className="flex flex-col items-center justify-center pb-5 rounded-full hover:bg-gray-300 "
