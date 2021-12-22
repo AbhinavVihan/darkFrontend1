@@ -90,9 +90,6 @@ const Products: FC<Props> = (props) => {
       </div>
 
       <div className="py-6 text-center bg-gray-800 border-black ">
-        {setTimeout(() => {
-          localStorage.setItem("alerted", "no");
-        }, 1800000)}
         <input
           className="w-56 h-10 border-2 border-black rounded sm:w-96 md:w-96 lg:w-96"
           type="text"

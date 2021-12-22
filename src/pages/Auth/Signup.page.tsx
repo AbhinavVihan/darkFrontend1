@@ -27,7 +27,7 @@ const Signup = () => {
     setPassword(password ? false : true);
   };
 
-  const { handleSubmit, getFieldProps, isSubmitting } = useFormik({
+  const { handleSubmit, getFieldProps } = useFormik({
     initialValues: {
       name: "",
       email: "",
@@ -61,11 +61,11 @@ const Signup = () => {
   });
 
   return (
-    <LoadingOverlay className="w-screen h-screen" active={loading} spinner>
+    <LoadingOverlay className="w-full h-full" active={loading} spinner>
       <div className="flex flex-col items-center pt-8">
-        <div className="flex flex-col space-y-14">
+        <div className="flex flex-col space-y-6">
           <div className="space-y-4 ">
-            <h1 className="text-2xl text-center sm:text-4xl">
+            <h1 className="text-2xl text-center lg:text-2xl sm:text-2xl">
               Get started with a free account
             </h1>
 
@@ -82,9 +82,11 @@ const Signup = () => {
 
           <form className="space-y-8 text-center" onSubmit={handleSubmit}>
             <div>
-              name:{" "}
+              <div className="text-left xxsm:invisible sm:visible sm:w-96 md:w-96 lg:w-96">
+                Name:
+              </div>
               <input
-                className="h-10 border-2 border-black rounded w-44 sm:w-96 md:w-96 lg:w-96"
+                className="h-10 border-2 border-black rounded xxsm:w-60 sm:w-96 md:w-96 lg:w-96"
                 id="name"
                 type="name"
                 autoComplete="name"
@@ -95,9 +97,11 @@ const Signup = () => {
             </div>
 
             <div>
-              email:{" "}
+              <div className="text-left xxsm:invisible sm:visible sm:w-96 md:w-96 lg:w-96">
+                Email:
+              </div>
               <input
-                className="h-10 border-2 border-black rounded w-44 sm:w-96 md:w-96 lg:w-96"
+                className="h-10 border-2 border-black rounded xxsm:w-60 sm:w-96 md:w-96 lg:w-96"
                 id="email"
                 type="email"
                 autoComplete="email"
@@ -108,9 +112,11 @@ const Signup = () => {
             </div>
 
             <div>
-              password:{" "}
+              <div className="text-left xxsm:invisible sm:visible sm:w-96 md:w-96 lg:w-96">
+                Password:
+              </div>
               <input
-                className="h-10 border-2 border-black rounded w-44 sm:w-96 md:w-96 lg:w-96"
+                className="h-10 border-2 border-black rounded xxsm:w-60 sm:w-96 md:w-96 lg:w-96"
                 id="password"
                 type={password ? "text" : "password"}
                 autoComplete="current-password"
@@ -121,9 +127,11 @@ const Signup = () => {
             </div>
 
             <div>
-              passwordConfirm:{" "}
+              <div className="text-left xxsm:invisible sm:visible sm:w-96 md:w-96 lg:w-96">
+                Confirm Password
+              </div>
               <input
-                className="h-10 border-2 border-black rounded w-44 sm:w-96 md:w-96 lg:w-72 xl:w-96"
+                className="h-10 border-2 border-black rounded xxsm:w-60 sm:w-96 md:w-96 lg:w-96"
                 id="passwordConfirm"
                 type="password"
                 autoComplete="off"
@@ -134,9 +142,11 @@ const Signup = () => {
             </div>
 
             <div>
-              address:{" "}
+              <div className="text-left xxsm:invisible sm:visible sm:w-96 md:w-96 lg:w-96">
+                Address:
+              </div>
               <input
-                className="h-10 border-2 border-black rounded w-44 sm:w-96 md:w-96 lg:w-96"
+                className="h-10 border-2 border-black rounded xxsm:w-60 sm:w-96 md:w-96 lg:w-96"
                 id="address"
                 type="address"
                 autoComplete="off"
@@ -145,10 +155,10 @@ const Signup = () => {
                 placeholder="address"
               />
             </div>
-            <div>
+            <div className="hidden">
               role:{" "}
               <input
-                className="h-10 border-2 border-black rounded w-44 sm:w-96 md:w-96 lg:w-96"
+                className="h-10 border-2 border-black rounded xxsm:w-60 sm:w-96 md:w-96 lg:w-96"
                 id="role"
                 type="role"
                 autoComplete="off"
@@ -172,16 +182,13 @@ const Signup = () => {
               </div>
 
               <button
-                className="inline-block px-0 py-1 mx-3 my-2 text-white bg-transparent bg-green-800 border-2 border-black rounded hover:bg-green-900 w-28"
+                className="inline-block px-0 py-1 mx-3 text-white bg-transparent bg-green-800 border-2 border-black rounded hover:bg-green-900"
                 type="submit"
               >
                 Get started
               </button>
             </div>
           </form>
-          <div className="flex flex-col items-center space-y-5">
-            <div> {isSubmitting}</div>
-          </div>
         </div>
       </div>
     </LoadingOverlay>

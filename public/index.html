@@ -34,6 +34,11 @@
       );
       localStorage.setItem("alerted", "yes");
     }
+    {
+      setTimeout(() => {
+        localStorage.setItem("alerted", "no");
+      }, 1800000);
+    }
   </script>
   <script src="https://js.stripe.com/v3/"></script>
 
