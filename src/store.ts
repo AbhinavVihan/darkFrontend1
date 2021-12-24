@@ -22,7 +22,7 @@ const enhancer =
     ? applyMiddleware(SagaMiddleware)
     : composeWithDevTools(applyMiddleware(SagaMiddleware));
 
-export const store = createStore(reducer, composeWithDevTools(enhancer));
+export const store = createStore(reducer, enhancer);
 
 SagaMiddleware.run(watchAll);
 
