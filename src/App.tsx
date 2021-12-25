@@ -83,6 +83,8 @@ function App() {
               "/update-myaccount",
               "/productsRetailor",
               "/reviewsRetailor",
+              "/allCustomersForRetailor",
+              "/allRetailorsForRetailor",
               "/categoriesRetailor",
               "/choose-product",
               "/products/:productId/review",

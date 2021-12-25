@@ -20,6 +20,8 @@ import CategoryProductsForRetailorPage from "./CategoryProductsForRetailor.page"
 import AddReviewPage from "./AddReview.page";
 import RetailorAllReviewsPage from "./RetailorAllReviews.page";
 import UpdateReviewPage from "./UpdateReview.page";
+import RetailorAllCustomersPage from "./RetailorAllCustomers.page";
+import RetailorAllRetailorsPage from "./RetailorAllRetailors.page";
 
 interface Props {}
 
@@ -88,6 +90,12 @@ const AppContainer: FC<Props> = () => {
         </Route>
         <Route path="/products/:productId/updateReview/:reviewId" exact>
           <UpdateReviewPage></UpdateReviewPage>
+        </Route>
+        <Route path="/allCustomersForRetailor" exact>
+          <RetailorAllCustomersPage></RetailorAllCustomersPage>
+        </Route>
+        <Route path="/allRetailorsForRetailor" exact>
+          <RetailorAllRetailorsPage></RetailorAllRetailorsPage>
         </Route>
       </Switch>
     </div>
