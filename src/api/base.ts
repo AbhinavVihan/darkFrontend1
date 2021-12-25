@@ -1,8 +1,8 @@
 import axios, { AxiosRequestConfig } from "axios";
 import { CANCEL } from "redux-saga";
 
-// export const BASE_URL = "https://dark-3.herokuapp.com";
-export const BASE_URL = "http://127.0.0.1:8000";
+export const BASE_URL = "https://dark-3.herokuapp.com";
+// export const BASE_URL = "http://127.0.0.1:8000";
 
 export const AUTH_TOKEN = "Login Token";
 
