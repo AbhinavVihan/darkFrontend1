@@ -35,6 +35,12 @@ export const LOGOUT_COMPLETE = "logout/complete";
 export const SIGNUP_BEGIN = "signup/begin";
 export const SIGNUP_COMPLETE = "signup/complete";
 export const SIGNUP_ERROR = "signup/error";
+export const SEE_ALL_CUSTOMERS = "see/all_customers";
+export const SEE_ALL_CUSTOMERS_COMPLETED = "see/all_customers_completed";
+export const SEE_ALL_CUSTOMERS_ERROR = "see/all_customers_error";
+export const SEE_ALL_RETAILORS = "see/all_retailors";
+export const SEE_ALL_RETAILORS_COMPLETED = "see/all_retailors_completed";
+export const SEE_ALL_RETAILORS_ERROR = "see/all_retailors_error";
 
 //products
 export const PRODUCTS_FETCH_SINGLE = "products/fetch_single";

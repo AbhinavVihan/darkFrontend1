@@ -14,6 +14,12 @@ import {
   RESET_PASSWORD_COMPLETE,
   RESET_PASSWORD_COMPLETED,
   RESET_PASSWORD_ERROR,
+  SEE_ALL_CUSTOMERS,
+  SEE_ALL_CUSTOMERS_COMPLETED,
+  SEE_ALL_CUSTOMERS_ERROR,
+  SEE_ALL_RETAILORS,
+  SEE_ALL_RETAILORS_COMPLETED,
+  SEE_ALL_RETAILORS_ERROR,
   SIGNUP_BEGIN,
   SIGNUP_COMPLETE,
   SIGNUP_ERROR,
@@ -21,12 +27,14 @@ import {
   UPDATE_MY_CREDENTIALS_COMPLETED,
   UPDATE_MY_CREDENTIALS_ERROR,
 } from "../actions/action.constants";
+import { Customer } from "../models/Customer";
 
 export interface AuthState {
   _id: string;
   token?: any;
   loading?: boolean;
   errorOne: string;
+  retailorAllCustomers: Customer[];
 }
 
 const initialState = {
@@ -34,6 +42,7 @@ const initialState = {
   token: 1,
   loading: false,
   errorOne: "",
+  retailorAllCustomers: [],
 };
 
 export const authReducer: Reducer<AuthState> = (
@@ -73,6 +82,18 @@ export const authReducer: Reducer<AuthState> = (
     case SIGNUP_ERROR:
     case UPDATE_MY_CREDENTIALS_ERROR:
       return { ...state, loading: false };
+    case SEE_ALL_CUSTOMERS:
+      return { ...state, loading: true };
+    case SEE_ALL_CUSTOMERS_COMPLETED:
+      return { ...state, retailorAllCustomers: action.payload, loading: false };
+    case SEE_ALL_CUSTOMERS_ERROR:
+      return { ...state, errorOne: action.payload, loading: false };
+    case SEE_ALL_RETAILORS:
+      return { ...state, loading: true };
+    case SEE_ALL_RETAILORS_COMPLETED:
+      return { ...state, retailorAllCustomers: action.payload, loading: false };
+    case SEE_ALL_RETAILORS_ERROR:
+      return { ...state, errorOne: action.payload, loading: false };
 
     default:
       return state;

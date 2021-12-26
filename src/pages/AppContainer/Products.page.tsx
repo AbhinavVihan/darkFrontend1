@@ -113,13 +113,7 @@ const Products: FC<Props> = (props) => {
           <div className="sm:grid sm:grid-cols-4 xxsm:grid xxsm:gap-7 xsm:gap-5 xxsm:grid-cols-3 lg:grid lg:grid-cols-7">
             {categories.map((category) => (
               <Link
-                // onClick={() => {
-                //   fetchProductsForCategory(category._id).then((p) => {
-                //     dispatch(fetchOneCategory(category._id));
-                //     dispatch(fetchProductsForCategories(category._id, p!));
-                //   });
-                //   // eslint-disable-next-line react-hooks/exhaustive-deps
-                // }}
+                key={category._id}
                 className="flex flex-col items-center justify-center pb-5 rounded-full hover:bg-gray-300 "
                 to={"/categories/" + category._id + "/products"}
               >
@@ -142,7 +136,10 @@ const Products: FC<Props> = (props) => {
           </div>
           <div className="mx-auto mt-10 xxsm:grid-cols-1 xxsm:grid 2xl:grid 2xl:grid-cols-5 xsm:grid xsm:grid-cols-2 xxsm:gap-8 lg:gap-14 md:grid md:grid-cols-3 md:gap-14 xl:mx-auto 2xl:gap-10 lg:mx-auto sm:grid sm:grid-cols-2 lg:grid lg:grid-cols-4">
             {products.map((product) => (
-              <div className="rounded cursor-pointer bg-gray-50 hover:bg-gray-200">
+              <div
+                key={product._id}
+                className="rounded cursor-pointer bg-gray-50 hover:bg-gray-200"
+              >
                 <div className="flex justify-center border-black">
                   <Link to={"/products/" + product._id}>
                     <img

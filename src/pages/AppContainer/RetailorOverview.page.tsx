@@ -10,7 +10,7 @@ const RetailorOverview: FC<Props> = (props) => {
   const customer = useAppSelector(meSelector);
 
   return (
-    <div className="pt-5 space-y-5 text-center">
+    <div className="pt-5 space-y-3 text-center">
       <h1 className="text-2xl font-semibold lg:pl-10">Retailor's Menu</h1>
       <div className="pb-12 space-y-5 lg:ml-20 md:ml-48 sm:ml-32">
         <div className="ml-20 text-left">

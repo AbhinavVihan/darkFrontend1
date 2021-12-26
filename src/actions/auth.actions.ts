@@ -28,6 +28,12 @@ import {
   RETAILOR_SIGNUP_BEGIN,
   RETAILOR_SIGNUP_COMPLETE,
   RETAILOR_SIGNUP_ERROR,
+  SEE_ALL_CUSTOMERS,
+  SEE_ALL_CUSTOMERS_COMPLETED,
+  SEE_ALL_CUSTOMERS_ERROR,
+  SEE_ALL_RETAILORS,
+  SEE_ALL_RETAILORS_COMPLETED,
+  SEE_ALL_RETAILORS_ERROR,
   SIGNUP_BEGIN,
   SIGNUP_COMPLETE,
   SIGNUP_ERROR,
@@ -174,6 +180,34 @@ export const signupComplete = () => ({
 
 export const signupError = () => ({
   type: SIGNUP_ERROR,
+});
+
+export const seeAllCustomers = () => ({
+  type: SEE_ALL_CUSTOMERS,
+});
+
+export const seeAllCustomersCompleted = (customer: Customer[]) => ({
+  type: SEE_ALL_CUSTOMERS_COMPLETED,
+  payload: customer,
+});
+
+export const seeAllCustomersError = (msg: string) => ({
+  type: SEE_ALL_CUSTOMERS_ERROR,
+  payload: msg,
+});
+
+export const seeAllRetailors = () => ({
+  type: SEE_ALL_RETAILORS,
+});
+
+export const seeAllRetailorsCompleted = (customer: Customer[]) => ({
+  type: SEE_ALL_RETAILORS_COMPLETED,
+  payload: customer,
+});
+
+export const seeAllRetailorsError = (msg: string) => ({
+  type: SEE_ALL_RETAILORS_ERROR,
+  payload: msg,
 });
 
 // export const authActions = bindActionCreators(

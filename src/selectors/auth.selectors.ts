@@ -48,3 +48,8 @@ export const loadingSelector = createSelector(
   [authStateSelector],
   (customerState) => customerState.loading
 );
+
+export const seeAllCustomers = createSelector(
+  [authStateSelector],
+  (customerState) => customerState.retailorAllCustomers
+);

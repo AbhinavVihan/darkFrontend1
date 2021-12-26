@@ -49,11 +49,8 @@ const Login: FC<Props> = (props) => {
           alert(
             "either you are not a customer, or you might've entered your credentials wrong please try again!"
           );
-          // authActions.loginError(e.response.statusText);
           dispatch(LoginActionError(e.response.statusText));
-          console.log(e.response.statusText);
         });
-      // dispatch(loginActionBegin(data));
     },
   });
 

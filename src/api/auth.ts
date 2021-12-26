@@ -200,10 +200,5 @@ export const getCustomer = (id: string) => {
 
 export const getAllCustomers = () => {
   const url = BASE_URL + "/customers";
-  return axios
-    .get<Customer[]>(url, { headers: { Authorization: AUTH_TOKEN } })
-    .then((res) => {
-      console.log(res.data);
-      return res.data;
-    });
+  return axios.get<Customer[]>(url, { headers: { Authorization: AUTH_TOKEN } });
 };

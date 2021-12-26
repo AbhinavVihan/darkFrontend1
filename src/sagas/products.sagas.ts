@@ -9,6 +9,8 @@ import {
   MY_ORDERS_BEGIN,
   PRODUCTS_FETCH_SINGLE,
   RETAIOR_ALL_ORDERS_BEGIN,
+  SEE_ALL_CUSTOMERS,
+  SEE_ALL_RETAILORS,
   // UPDATE_MY_CREDENTIALS_BEGIN,
 } from "../actions/action.constants";
 import {
@@ -50,6 +52,13 @@ import {
 //   updateMyCredentialsCompleted,
 //   updateMyCredentialsError,
 // } from "../actions/auth.actions";
+import { getAllCustomers } from "../api/auth";
+import {
+  seeAllCustomersCompleted,
+  seeAllCustomersError,
+  seeAllRetailorsCompleted,
+  seeAllRetailorsError,
+} from "../actions/auth.actions";
 
 function* fetchOneProduct(action: AnyAction): Generator<any> {
   try {
@@ -163,6 +172,28 @@ function* FetchAllOrders(action: AnyAction): Generator<any> {
   }
 }
 
+function* seeAllCustomers(action: AnyAction): Generator<any> {
+  try {
+    const res: any = yield call(getAllCustomers);
+
+    yield put(seeAllCustomersCompleted(res.data));
+  } catch (e: any) {
+    const error = e.response.statusText || "some error occured";
+    yield put(seeAllCustomersError(error));
+  }
+}
+
+function* seeAllRetailors(action: AnyAction): Generator<any> {
+  try {
+    const res: any = yield call(getAllCustomers);
+
+    yield put(seeAllRetailorsCompleted(res.data));
+  } catch (e: any) {
+    const error = e.response.statusText || "some error occured";
+    yield put(seeAllRetailorsError(error));
+  }
+}
+
 // function* Login(action: AnyAction): Generator<any> {
 //   try {
 //     const res: any = yield call(login, {
@@ -242,13 +273,14 @@ export function* watchAll() {
     takeEvery(CREATE_PRODUCT_BEGIN, createproduct),
     takeEvery(MY_ORDERS_BEGIN, FetchMyOrders),
     takeEvery(RETAIOR_ALL_ORDERS_BEGIN, FetchAllOrders),
+    takeEvery(SEE_ALL_CUSTOMERS, seeAllCustomers),
+    takeEvery(SEE_ALL_RETAILORS, seeAllRetailors),
+
     // takeEvery(UPDATE_MY_CREDENTIALS_BEGIN, updateMyCredentials),
     // takeEvery(LOGIN_BEGIN, Login),
     // takeEvery(RETAILOR_LOGIN_BEGIN, RetailorLogin),
     // takeEvery(GET_CUSTOMER_BEGIN, getC),
-
     // takeEvery(CREATE_CATEGORY_BEGIN, createcategory),
-
     // takeEvery(FETCH_PRODUCTS_FOR_CATEGORY, fetchProductsForCategory),
   ]);
 }
