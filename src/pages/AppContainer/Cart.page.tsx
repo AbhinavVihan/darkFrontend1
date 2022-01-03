@@ -85,6 +85,9 @@ const Cart: FC<Props> = (props) => {
                         orderProduct(product._id);
                         dispatch(buyingBegin());
                         deleteFromCart(product._id, cartId!);
+                        alert(
+                          "(NOte: Please use these credentials), [card no.]: 4242 4242 4242 4242, [expiry]: month and year within 10 yrs from today, [cvv]: any 3 digit no."
+                        );
                       }}
                       className="inline-block px-0 py-1 mx-3 my-2 text-white bg-transparent bg-green-800 border-2 border-black rounded hover:bg-green-900 w-28"
                     >
