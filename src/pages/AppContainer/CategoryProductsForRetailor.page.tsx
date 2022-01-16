@@ -46,7 +46,7 @@ const ProductsForCategories: FC<Props> = (props) => {
   }
 
   return (
-    <LoadingOverlay className="w-full h-full" active={loading} spinner>
+    <LoadingOverlay className="w-screen h-screen" active={loading} spinner>
       <div className="h-20 pt-5 pr-3 space-x-2 text-xs font-semibold text-right text-white bg-black sm:space-x-3 md:text-base justify-items-end sm:text-sm">
         <Link className=" hover:text-red-500" to="/categoriesRetailor">
           Back to categories

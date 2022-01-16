@@ -87,7 +87,7 @@ const ProductsDetails: FC<Props> = (props) => {
 
   return (
     <LoadingOverlay
-      className="w-full h-full"
+      className="w-screen h-screen"
       active={loading || loadingForCart}
       spinner
     >
@@ -109,7 +109,6 @@ const ProductsDetails: FC<Props> = (props) => {
             </Link>
           )}
         </div>
-
         {product && (
           <div className="xsm:flex xsm:justify-center xsm:flex-row xxsm:flex xxsm:flex-col">
             <div className="ml-6 mr-6">
@@ -175,7 +174,7 @@ const ProductsDetails: FC<Props> = (props) => {
             </div>
           </div>
         )}
-        <div className="mt-40 text-right border-t-4"></div>
+        z<div className="mt-40 text-right border-t-4"></div>
         <div className="text-center">
           {customer?.role === "customer" && (
             <div>
@@ -198,7 +197,6 @@ const ProductsDetails: FC<Props> = (props) => {
             </div>
           )}
         </div>
-
         {product && product.reviews && product.reviews.length > 0 && (
           <div>
             <div className="mt-20 mb-5 text-3xl font-semibold text-center sm:text-3xl xsm:text-base xxxsm:text-xs">

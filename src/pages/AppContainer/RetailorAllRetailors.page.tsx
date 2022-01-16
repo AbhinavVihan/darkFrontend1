@@ -25,7 +25,7 @@ const RetailorAllRetailors: FC<Props> = (props) => {
   }, []);
 
   return (
-    <LoadingOverlay className="w-full h-full" active={loading} spinner>
+    <LoadingOverlay className="w-screen h-screen" active={loading} spinner>
       <div className="flex justify-center m-auto">
         <div className="mt-5 space-y-10 gap-7 xxsm:grid-cols-1 sm:w-60 xxsm:grid ">
           {retailors &&

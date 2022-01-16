@@ -54,7 +54,7 @@ const Products: FC<Props> = (props) => {
 
   return (
     <LoadingOverlay
-      className="relative w-full h-full"
+      className="w-screen h-screen"
       active={loading || loadingForLogout}
       spinner
     >
