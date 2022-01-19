@@ -174,7 +174,7 @@ const ProductsDetails: FC<Props> = (props) => {
             </div>
           </div>
         )}
-        z<div className="mt-40 text-right border-t-4"></div>
+        <div className="mt-40 text-right border-t-4"></div>
         <div className="text-center">
           {customer?.role === "customer" && (
             <div>
